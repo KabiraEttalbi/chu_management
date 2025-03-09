@@ -6,7 +6,6 @@ import com.example.chu_management.composite.ServiceGroupe;
 import com.example.chu_management.composite.ServiceUnitaire;
 import com.example.chu_management.config.DatabaseConnection;
 import com.example.chu_management.entities.Batiment;
-import com.example.chu_management.entities.Patient;
 import com.example.chu_management.entities.Service;
 import com.example.chu_management.facade.PatientFacade;
 import com.example.chu_management.factories.BatimentFactory;
@@ -33,11 +32,11 @@ public class ChuManagementApplication implements CommandLineRunner{
     @Override
     public void run(String... args) {
         // Ajouter des patients
-        patientFacade.ajouterNouveauPatient("Ali", "Khan", "P001", "Stable");
-        patientFacade.ajouterNouveauPatient("Sofia", "Mehdi", "P002", "Critique");
+        // patientFacade.ajouterNouveauPatient("Ali", "Khan", "Stable", "");
+        // patientFacade.ajouterNouveauPatient("Sofia", "Mehdi", "Critique", "");
 
         // Afficher un patient spécifique
-        patientFacade.afficherDetailsPatient("P001");
+        patientFacade.afficherDetailsPatient("P35");
 
         // Afficher tous les patients
         patientFacade.afficherTousLesPatients();
@@ -104,15 +103,15 @@ public class ChuManagementApplication implements CommandLineRunner{
         gestionPatients.ajouterObservateur(admin2);
 
         // Ajout d’un patient
-        Patient patient1 = new Patient("Omar", "Said", "P100", "Stable");
-        gestionPatients.ajouterPatient(patient1);
+        // Patient patient1 = new Patient("Omar", "Said", "Stable", "");
+        // gestionPatients.ajouterPatient(patient1);
 
         // Modification de la situation médicale d’un patient
-        gestionPatients.modifierSituationMedicale("P100", "Critique");
+        gestionPatients.modifierSituationMedicale("P36", "Critique");
 
         // Suppression d’un observateur et test d’une nouvelle modification
         gestionPatients.supprimerObservateur(admin2);
-        gestionPatients.modifierSituationMedicale("P100", "Guéri");
+        gestionPatients.modifierSituationMedicale("P36", "Guéri");
 
         //Test Facade dans le fichier TestFacade
 

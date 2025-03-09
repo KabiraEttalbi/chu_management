@@ -17,10 +17,10 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String nom, String prenom, String code, String situationMedicale) {
+    public Patient(String nom, String prenom, String situationMedicale) {
         this.nom = nom;
         this.prenom = prenom;
-        this.code = code;
+        this.code = "";
         this.situationMedicale = situationMedicale;
     }
 
@@ -47,7 +47,7 @@ public class Patient {
     public String getCode() {
         return code;
     }
-
+    
     public void setCode(String code) {
         this.code = code;
     }

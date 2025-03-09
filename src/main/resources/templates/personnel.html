@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gestion du Personnel</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div th:insert="menu.html"></div>
+    <div style = "margin: 20px;"> 
+        <h1>Liste du Personnel</h1>
+        <h2>Ajouter du Personnel</h2>
+        <form th:action="@{/personnel/add}" method="post">
+        <label>Type :</label>
+        <select name="type">
+            <option value="medecin">Médecin</option>
+            <option value="infirmier">Infirmier</option>
+        </select>
+
+        <label>Nom :</label>
+        <input type="text" name="nom" placeholder="Nom" required />
+
+        <label>Prénom :</label>
+        <input type="text" name="prenom" placeholder="Prénom" required />
+
+        <button type="submit">Ajouter</button>
+        </form>
+
+        <form method="get" action="/personnel">
+        <input
+            type="text"
+            name="search"
+            placeholder="Rechercher..."
+            th:value="${search}"
+        />
+        <button type="submit">Rechercher</button>
+        <a href="/personnel"><button type="button">Réinitialiser</button></a>
+        </form>
+
+        <table border="1">
+        <thead>
+            <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Fonction</th>
+            <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="personnel : ${personnelList}">
+            <td th:text="${personnel.id}"></td>
+            <td th:text="${personnel.nom}"></td>
+            <td th:text="${personnel.prenom}"></td>
+            <td th:text="${personnel.fonction}"></td>
+            <td>
+                <a th:href="@{/personnel/edit/{id}(id=${personnel.id})}"
+                >Modifier</a
+                >
+                <a
+                th:href="@{/personnel/delete/{id}(id=${personnel.id})}"
+                onclick="return confirm('Êtes-vous sûr ?')"
+                >Supprimer</a
+                >
+            </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+  </body>
+</html>

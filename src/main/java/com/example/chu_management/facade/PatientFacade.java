@@ -12,8 +12,8 @@ public class PatientFacade {
     @Autowired
     private PatientService patientService;
 
-    public void ajouterNouveauPatient(String nom, String prenom, String code, String situationMedicale) {
-        Patient patient = new Patient(nom, prenom, code, situationMedicale);
+    public void ajouterNouveauPatient(String nom, String prenom, String situationMedicale) {
+        Patient patient = new Patient(nom, prenom, situationMedicale);
         patientService.ajouterPatient(patient);
         System.out.println("Patient ajouté : " + nom + " " + prenom);
     }
@@ -33,7 +33,7 @@ public class PatientFacade {
         List<Patient> patients = patientService.obtenirTousLesPatients();
         System.out.println("Liste des patients :");
         for (Patient p : patients) {
-            System.out.println("- " + p.getNom() + " " + p.getPrenom() + " (" + p.getSituationMedicale() + ")");
+            System.out.println(p.getCode() + " - " + p.getNom() + " " + p.getPrenom() + " (" + p.getSituationMedicale() + ")");
         }
     }
 }
