@@ -14,7 +14,7 @@ public class Service {
 
     @ManyToOne
     @JoinColumn(name = "batiment_id")
-    private Batiment batiment;
+    private Batiment batiment; 
 
     public Service() {
     }

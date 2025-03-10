@@ -17,10 +17,10 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String nom, String prenom, String situationMedicale) {
+    public Patient(String nom, String prenom, String code, String situationMedicale) {
         this.nom = nom;
         this.prenom = prenom;
-        this.code = "";
+        this.code = code;
         this.situationMedicale = situationMedicale;
     }
 

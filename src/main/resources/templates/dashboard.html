@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard CHU</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body class="bg-gray-100">
+
+    <div th:insert="~{menu.html}"></div>
+
+    <!-- Conteneur principal -->
+    <div class="flex flex-col p-6 space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+        <!-- Carte Patients -->
+        <div class="bg-blue-100 p-6 rounded-lg shadow-md flex items-center gap-4">
+          <i class="ph ph-heartbeat text-blue-600 text-4xl"></i>
+          <div>
+            <h2 class="text-lg font-semibold">Patients</h2>
+            <p class="text-4xl font-bold text-blue-600" th:text="${totalPatients}">0</p>
+          </div>
+        </div>
+
+        <!-- Carte Services -->
+        <div class="bg-green-100 p-6 rounded-lg shadow-md flex items-center gap-4">
+          <i class="ph ph-stethoscope text-green-600 text-4xl"></i>
+          <div>
+            <h2 class="text-lg font-semibold">Services</h2>
+            <p class="text-4xl font-bold text-green-600" th:text="${totalServices}">0</p>
+          </div>
+        </div>
+
+        <!-- Carte Bâtiments -->
+        <div class="bg-yellow-100 p-6 rounded-lg shadow-md flex items-center gap-4">
+          <i class="ph ph-hospital text-yellow-600 text-4xl"></i>
+          <div>
+            <h2 class="text-lg font-semibold">Bâtiments</h2>
+            <p class="text-4xl font-bold text-yellow-600" th:text="${totalBatiments}">0</p>
+          </div>
+        </div>
+
+        <!-- Carte Personnel -->
+        <div class="bg-red-100 p-6 rounded-lg shadow-md flex items-center gap-4">
+          <i class="ph ph-users text-red-600 text-4xl"></i>
+          <div>
+            <h2 class="text-lg font-semibold">Personnel</h2>
+            <p class="text-4xl font-bold text-red-600" th:text="${totalPersonnel}">0</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloc de Notifications -->
+      <div class="bg-white p-6 mt-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-semibold mb-4">Notifications</h2>
+        <ul>
+          <li th:each="notif : ${notifications}" class="p-2 border-b flex items-center gap-2">
+            <i class="ph ph-bell text-yellow-500"></i>
+            <span th:text="${notif}"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

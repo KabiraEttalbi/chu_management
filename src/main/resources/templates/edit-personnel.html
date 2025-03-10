@@ -2,17 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <title>Modifier un Patient</title>
+    <title>Modifier Personnel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
     <div class="container mx-auto p-8">
-      <h1 class="text-3xl font-bold text-gray-800 mb-6">Modifier le Patient</h1>
+      <h1 class="text-3xl font-bold text-gray-800 mb-6">Modifier Personnel</h1>
 
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <form th:action="@{/patients/update}" method="post" class="space-y-4">
-          <input type="hidden" name="id" th:value="${patient.id}" />
+        <form th:action="@{/personnel/update}" method="post" class="space-y-4">
+          <input type="hidden" name="id" th:value="${personnel.id}" />
 
           <div>
             <label for="nom" class="block text-lg text-gray-700">Nom</label>
@@ -20,31 +21,35 @@
               type="text"
               name="nom"
               id="nom"
-              th:value="${patient.nom}"
+              th:value="${personnel.nom}"
               required
               class="w-full px-3 py-2 border rounded-lg text-gray-700"
             />
           </div>
 
           <div>
-            <label for="prenom" class="block text-lg text-gray-700">Prénom</label>
+            <label for="prenom" class="block text-lg text-gray-700"
+              >Prénom</label
+            >
             <input
               type="text"
               name="prenom"
               id="prenom"
-              th:value="${patient.prenom}"
+              th:value="${personnel.prenom}"
               required
               class="w-full px-3 py-2 border rounded-lg text-gray-700"
             />
           </div>
 
           <div>
-            <label for="situationMedicale" class="block text-lg text-gray-700">Situation Médicale</label>
+            <label for="fonction" class="block text-lg text-gray-700"
+              >Fonction</label
+            >
             <input
               type="text"
-              name="situationMedicale"
-              id="situationMedicale"
-              th:value="${patient.situationMedicale}"
+              name="fonction"
+              id="fonction"
+              th:value="${personnel.fonction}"
               required
               class="w-full px-3 py-2 border rounded-lg text-gray-700"
             />
@@ -55,14 +60,14 @@
               type="submit"
               class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600"
             >
-              Mettre à Jour
+              Mettre à jour
             </button>
-            <a href="/patients">
+            <a href="/personnel">
               <button
                 type="button"
                 class="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600"
               >
-                Retour
+                Annuler
               </button>
             </a>
           </div>

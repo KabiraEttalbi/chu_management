@@ -1,15 +1,31 @@
+<!-- menu.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a th:href="@{/patients}">Patients</a></li>
-            <li><a th:href="@{/personnel}">Personnel</a></li>
-        </ul>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <nav class="bg-blue-600 p-4 shadow-md flex justify-between items-center text-white">
+        <h1 class="text-2xl font-bold ml-6">Dashboard CHU</h1>
+        <div class="flex space-x-8 justify-center flex-grow">
+            <a href="/dashboard" class="text-white flex items-center gap-2">
+                <i class="ph ph-house"></i> Accueil
+            </a>
+            <a href="/patients" class="text-white flex items-center gap-2">
+                <i class="ph ph-heartbeat"></i> Patients
+            </a>
+            <a href="/services" class="text-white flex items-center gap-2">
+                <i class="ph ph-stethoscope"></i> Services
+            </a>
+            <a href="/batiments" class="text-white flex items-center gap-2">
+                <i class="ph ph-hospital"></i> Bâtiments
+            </a>
+            <a href="/personnel" class="text-white flex items-center gap-2">
+                <i class="ph ph-users"></i> Personnel
+            </a>
+        </div>
     </nav>
 </body>
 </html>

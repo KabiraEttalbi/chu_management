@@ -2,17 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <title>Modifier un Patient</title>
+    <title>Modifier un Service</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="bg-gray-100 font-sans leading-normal tracking-normal">
     <div class="container mx-auto p-8">
-      <h1 class="text-3xl font-bold text-gray-800 mb-6">Modifier le Patient</h1>
+      <h1 class="text-3xl font-bold text-gray-800 mb-6">Modifier le Service</h1>
 
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <form th:action="@{/patients/update}" method="post" class="space-y-4">
-          <input type="hidden" name="id" th:value="${patient.id}" />
+        <form th:action="@{/services/update}" method="post" class="space-y-4">
+          <input type="hidden" name="id" th:value="${service.id}" />
 
           <div>
             <label for="nom" class="block text-lg text-gray-700">Nom</label>
@@ -20,35 +20,41 @@
               type="text"
               name="nom"
               id="nom"
-              th:value="${patient.nom}"
+              th:value="${service.nom}"
               required
               class="w-full px-3 py-2 border rounded-lg text-gray-700"
             />
           </div>
 
           <div>
-            <label for="prenom" class="block text-lg text-gray-700">Prénom</label>
+            <label for="description" class="block text-lg text-gray-700">Description</label>
             <input
               type="text"
-              name="prenom"
-              id="prenom"
-              th:value="${patient.prenom}"
+              name="description"
+              id="description"
+              th:value="${service.description}"
               required
               class="w-full px-3 py-2 border rounded-lg text-gray-700"
             />
           </div>
 
           <div>
-            <label for="situationMedicale" class="block text-lg text-gray-700">Situation Médicale</label>
-            <input
-              type="text"
-              name="situationMedicale"
-              id="situationMedicale"
-              th:value="${patient.situationMedicale}"
-              required
-              class="w-full px-3 py-2 border rounded-lg text-gray-700"
-            />
-          </div>
+            <label for="batiment" class="block text-lg text-gray-700">Bâtiment</label>
+            <select
+                name="batiment"
+                id="batiment"
+                class="w-full px-3 py-2 border rounded-lg text-gray-700"
+                required
+            >
+                <option value="" disabled hidden>Choisissez un bâtiment</option>
+                <option
+                th:each="batiment : ${batiments}"
+                th:value="${batiment.id}"
+                th:text="${batiment.nom}"
+                th:selected="${service.batiment != null and batiment.id == service.batiment.id}"
+                ></option>
+            </select>
+            </div>
 
           <div class="flex justify-end space-x-4">
             <button
@@ -57,7 +63,7 @@
             >
               Mettre à Jour
             </button>
-            <a href="/patients">
+            <a href="/services">
               <button
                 type="button"
                 class="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600"

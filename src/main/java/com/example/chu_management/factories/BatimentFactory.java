@@ -3,12 +3,16 @@ package com.example.chu_management.factories;
 import com.example.chu_management.entities.Batiment;
 
 public class BatimentFactory {
-    public static Batiment createBatiment(String type) {
-        return switch (type.toLowerCase()) {
-            case "administration" -> new Batiment("Administration", "Bloc A", 200, "Gestion", "Administration du CHU");
-            case "urgence" -> new Batiment("Urgence", "Bloc B", 300, "Urgence", "Service d'urgence 24/7");
-            case "radiologie" -> new Batiment("Radiologie", "Bloc C", 150, "Imagerie", "Radiographies et scanners");
-            default -> throw new IllegalArgumentException("Type de bâtiment inconnu : " + type);
-        };
+    public static Batiment createBatiment(String type, String emplacement, String taille, String fonctionnalite, String description) {
+        switch (type.toLowerCase()) {
+            case "administration":
+                return new Batiment("Administration", emplacement, taille, fonctionnalite, description);
+            case "urgence":
+                return new Batiment("Urgence", emplacement, taille, fonctionnalite, description);
+            case "radiologie":
+                return new Batiment("Radiologie", emplacement, taille, fonctionnalite, description);
+            default:
+                return new Batiment(type, emplacement, taille, fonctionnalite, description);
+        }
     }
 }

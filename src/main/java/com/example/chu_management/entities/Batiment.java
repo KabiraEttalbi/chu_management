@@ -11,7 +11,7 @@ public class Batiment {
 
     private String nom;
     private String emplacement;
-    private int taille;
+    private String taille;
     private String fonctionnalite;
     private String description;
 
@@ -19,7 +19,7 @@ public class Batiment {
     public Batiment() {
     }
 
-    public Batiment(String nom, String emplacement, int taille, String fonctionnalite, String description) {
+    public Batiment(String nom, String emplacement, String taille, String fonctionnalite, String description) {
         this.nom = nom;
         this.emplacement = emplacement;
         this.taille = taille;
@@ -48,11 +48,11 @@ public class Batiment {
         this.emplacement = emplacement;
     }
 
-    public int getTaille() {
+    public String getTaille() {
         return taille;
     }
 
-    public void setTaille(int taille) {
+    public void setTaille(String taille) {
         this.taille = taille;
     }
 

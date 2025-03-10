@@ -19,5 +19,17 @@ public class MediatorConcret implements Mediator {
             }
         }
     }
+
+    @Override
+    public void ajouterCollegue(ServiceAdministratif sa) {
+        collegues.add(sa);
+        sa.setMediator(this);
+    }
+
+    @Override
+    public void ajouterCollegue(ServiceMedical sm) {
+        collegues.add(sm);
+        sm.setMediator(this);
+    }
 }
 

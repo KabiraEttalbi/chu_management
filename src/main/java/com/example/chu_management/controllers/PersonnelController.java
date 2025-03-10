@@ -56,7 +56,7 @@ public class PersonnelController {
     public String editPersonnel(@PathVariable Long id, Model model) {
         Personnel personnel = personnelRepository.findById(id).orElseThrow(() -> new RuntimeException("Personnel non trouvé"));
         model.addAttribute("personnel", personnel);
-        return "edit_personnel";
+        return "edit-personnel";
     }
 
     @PostMapping("/update")

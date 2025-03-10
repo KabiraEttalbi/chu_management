@@ -15,6 +15,7 @@ public class PatientService {
 
     @Transactional
     public Patient ajouterPatient(Patient patient) {
+        patientRepository.save(patient);
         // Now, set the code using the generated ID
         patient.setCode("P" + patient.getId());
         // Save the patient again to update the code
